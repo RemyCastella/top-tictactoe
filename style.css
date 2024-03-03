@@ -1,0 +1,200 @@
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: unset;
+    font-family: 'brush', sans-serif;
+    height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+picture,
+svg,
+canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+:root {
+    --grid-line: 1px solid black;
+    --green: #42F598;
+    --hover-green: #81fbbc;
+}
+
+@font-face {
+    font-family: 'brush';
+    src: url('./fonts/Harukaze.otf') format('opentype')
+  }
+
+
+.game-container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.header > .title {
+    padding-top: 2rem;
+    font-size: 7rem;
+}
+
+.header > .players {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+}
+
+.gameboard-container {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+button.game-board {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.gameboard-container > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 4rem;
+}
+
+.gameboard-container > .winner {
+    background: red;
+    transition: 3000ms;
+}
+
+button[data-id = "0"] {
+    border-right: var(--grid-line);
+    border-bottom: var(--grid-line);
+}
+
+button[data-id = "1"] {
+    border: var(--grid-line);
+    border-top: none;
+    border-left: none;
+}
+
+button[data-id = "2"] {
+    border-bottom: var(--grid-line);
+}
+
+button[data-id = "3"] {
+    border: var(--grid-line);
+    border-left: none;
+    border-top: none;
+}
+
+button[data-id = "4"] {
+    border: var(--grid-line);
+    border-left: none;
+    border-top: none;
+}
+
+button[data-id = "5"] {
+    border-bottom: var(--grid-line);
+}
+
+button[data-id = "6"] {
+    border-right: var(--grid-line);
+}
+
+button[data-id = "7"] {
+    border-right: var(--grid-line);
+}
+
+dialog {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0; 
+    bottom: 0;
+    margin: auto;
+
+    height: 50%;
+    width: 40%;
+
+    opacity: 0.90;
+    border: none;
+    border-radius: 1rem;
+
+    padding: 2rem;
+  
+}
+
+dialog::backdrop{
+    background-color: rgba(255, 255, 255, 0.095)
+}
+
+dialog > p:first-child {
+    font-size: 2.5rem;
+
+}
+
+dialog > p:nth-child(2) {
+    font-size: 2rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+
+.p1 {
+    margin-bottom: 2rem;
+}
+
+button.play {
+    background: var(--green);
+    border: none;
+    margin-top: 3rem;
+
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    height: 5rem;
+    width: auto;
+
+    font-size: 1.5rem;
+   
+}
+
+button.play:hover {
+    background: var(--hover-green)
+}
